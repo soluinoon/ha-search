@@ -3,8 +3,8 @@ package com.soluinoon.hasearch.dto.search;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
 @NoArgsConstructor
+@Getter
 public class SummonerDto {
     String accountId;
     int profileIconId;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>예쁜 검색창</title>
+  <!-- 부트스트랩 CDN 추가 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* 검색창 스타일링 */
+    .custom-search {
+      margin: 20px;
+    }
+    .custom-search input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 30px;
+      background-color: #F5F5F5;
+    }
+    .custom-search button[type="submit"] {
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<!-- 검색창 HTML 코드 -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <form class="custom-search" action="search" method="GET">
+        <div class="input-group">
+          <input type="text" class="form-control" name="name" placeholder="검색어를 입력하세요">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">검색</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- 부트스트랩 JS CDN 추가 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

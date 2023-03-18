@@ -17,7 +17,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -35,8 +35,16 @@ public class SearchService {
 
     private SummonerDto getSummonerByName(String name) {
         try {
-            String url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/vezimil";
-            UriComponents uri = UriComponentsBuilder.fromHttpUrl(url).queryParam("api_key", key).build(false);
+//            다른방식
+//            String url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name";
+//            UriComponents uri = UriComponentsBuilder.fromHttpUrl(url)
+//                    .path("/{name}").query("api_key={key}")
+//                    .buildAndExpand(name, key);
+
+            String url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{name}?api_key={key}";
+
+            UriComponents uri = UriComponentsBuilder.fromHttpUrl(url)
+                    .buildAndExpand(name, key);
             HttpGet request = new HttpGet(uri.toUri());
             HttpResponse response = client.execute(request);
 
@@ -68,14 +76,12 @@ public class SearchService {
 
             HttpEntity entity = response.getEntity();
             InputStream stream = entity.getContent();
-
             BufferedReader br = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-            String temp;
-            List<String> matches = new ArrayList<>();
-            while ((temp = br.readLine()) != null) {
-                matches.add(temp);
-            }
-            return matches;
+            String data = br.readLine();
+            data = data.replaceAll("[\"\\[\\]]", "");
+            List<String> dataList = Arrays.asList(data.split(","));
+
+            return dataList;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
