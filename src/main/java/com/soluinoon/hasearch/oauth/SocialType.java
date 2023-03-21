@@ -1,6 +1,6 @@
 package com.soluinoon.hasearch.oauth;
 
-public enum LoginType {
+public enum SocialType {
     GOOGLE,
     NAVER,
     KAKAO
