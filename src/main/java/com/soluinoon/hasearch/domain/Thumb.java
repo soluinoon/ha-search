@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Like {
+public class Thumb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

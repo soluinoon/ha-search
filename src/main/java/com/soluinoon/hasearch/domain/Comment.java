@@ -22,7 +22,7 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "champion_id", nullable = false)
     private Champion champion;
-    private Integer like;
+    private Integer thumbNumber;
     private String version;
     @CreatedDate
     private LocalDateTime createdAt;
@@ -30,7 +30,7 @@ public class Comment {
     private LocalDateTime modifiedAt;
 
     @OneToMany(mappedBy = "comment")
-    private List<Like> likes = new ArrayList<>();
+    private List<Thumb> likes = new ArrayList<>();
     @OneToMany(mappedBy = "comment")
     private List<Report> reports = new ArrayList<>();
 }

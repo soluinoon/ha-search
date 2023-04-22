@@ -29,7 +29,7 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Comment> comments = new ArrayList<>();
     @OneToMany(mappedBy = "member")
-    private List<Like> likes = new ArrayList<>();
+    private List<Thumb> likes = new ArrayList<>();
     @OneToMany(mappedBy = "member")
     private List<Report> reports = new ArrayList<>();
 }
